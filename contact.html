@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dust & Needles | Contact</title>
+    <title>Contact | Dust & Needles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">📻 Dust & Needles</a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         <nav>
             <ul id="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -19,33 +21,57 @@
         </nav>
     </header>
 
-    <main>
+    <main style="padding: 50px 5%; max-width: 900px; margin: 0 auto; flex: 1;">
         <h2 class="section-title">Drop Us A Line</h2>
+        <div class="text-content" style="margin-bottom: 30px;">
+            <p>Got a playlist recommendation or want to report a broken link? Let us know!</p>
+        </div>
         
         <div class="contact-form">
-            <!-- PENTING: data-netlify="true" adalah rahsia untuk Admin terima data -->
             <form name="contact" method="POST" data-netlify="true">
                 <div class="form-group">
-                    <label>Your Name</label>
-                    <input type="text" name="name" required placeholder="John Doe">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" id="name" required placeholder="John Doe">
                 </div>
                 <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" required placeholder="john@example.com">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" required placeholder="john@example.com">
                 </div>
                 <div class="form-group">
-                    <label>Message / Record Request</label>
-                    <textarea name="message" rows="5" required placeholder="I would love a playlist for..."></textarea>
+                    <label for="message">Message / Record Request</label>
+                    <textarea name="message" id="message" rows="5" required placeholder="I would love a playlist for..."></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Dust & Needles. All Rights Reserved.</p>
+    <footer class="premium-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>📻 Dust & Needles</h3>
+                <p>Curating the best analog sounds for your daily moods. A space where vintage aesthetics meet modern curation.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="playlists.html">Playlists</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <p>Enjoy our curated playlists directly on Spotify.</p>
+                <p style="margin-top: 10px; color: var(--accent-gold);">Email: hello@dustneedles.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Dust & Needles. All Rights Reserved.</p>
+        </div>
     </footer>
 
-    <script src="js/script.js"><\/script>
+    <script src="js/script.js"></script>
 </body>
-</html>`,
+</html>
