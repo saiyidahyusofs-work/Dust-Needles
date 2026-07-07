@@ -3,599 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dust & Needles | Premium Vintage Audio Archive</title>
-    
-    <!-- Google Fonts: Editorial Serif & Premium Sans Pairing -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Retro Vector Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            --bg-dark: #080808;
-            --bg-card: rgba(22, 22, 22, 0.7);
-            --gold: #D4AF37;
-            --gold-glow: rgba(212, 175, 55, 0.35);
-            --text-light: #F7F4EF;
-            --text-muted: #B5AFA2;
-            --border-color: rgba(212, 175, 55, 0.15);
-            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        body, html {
-            height: 100%;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Ambient Scenery Backdrops */
-        .scenery-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1539707131656-c10417e1217e?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            z-index: -3;
-            filter: grayscale(15%) brightness(35%);
-        }
-
-        .dark-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: linear-gradient(135deg, rgba(8, 8, 8, 0.98) 0%, rgba(12, 12, 12, 0.9) 60%, rgba(5, 5, 5, 0.8) 100%);
-            z-index: -2;
-        }
-
-        #particle-dust-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Editorial Premium Header */
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            background: rgba(8, 8, 8, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            transition: var(--transition-smooth);
-        }
-
-        .header-container {
-            max-w: 1200px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--text-light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            letter-spacing: 0.5px;
-        }
-
-        .logo span {
-            color: var(--gold);
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .logo i {
-            color: var(--gold);
-            font-size: 1.4rem;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 500;
-            transition: var(--transition-smooth);
-            position: relative;
-            padding-bottom: 4px;
-        }
-
-        nav a:hover, nav a.active {
-            color: var(--text-light);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background-color: var(--gold);
-            transition: var(--transition-smooth);
-        }
-
-        nav a:hover::after, nav a.active::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-light);
-            font-size: 1.4rem;
-            cursor: pointer;
-        }
-
-        /* Centered Multi-column Main Block */
-        main {
-            max-w: 1200px;
-            margin: 0 auto;
-            padding: 8.5rem 2rem 4rem;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .home-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
-            align-items: center;
-            width: 100%;
-            animation: elegantFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @media (min-width: 992px) {
-            .home-grid {
-                grid-template-columns: 1.1fr 0.9fr;
-            }
-        }
-
-        .hero-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.8rem, 4.5vw, 4rem);
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .hero-text h1 span {
-            color: var(--gold);
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .hero-text p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            max-w: 520px;
-        }
-
-        .btn-gold {
-            display: inline-block;
-            padding: 1.1rem 2.8rem;
-            background: transparent;
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            border: 1px solid var(--gold);
-            border-radius: 40px;
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            cursor: pointer;
-        }
-
-        .btn-gold::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            background: var(--gold);
-            z-index: -1;
-            transition: var(--transition-smooth);
-        }
-
-        .btn-gold:hover {
-            color: #050505;
-            box-shadow: 0 0 25px var(--gold-glow);
-            transform: translateY(-2px);
-        }
-
-        .btn-gold:hover::before {
-            width: 100%;
-        }
-
-        /* Overlapping Collage Visuals */
-        .collage-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 440px;
-            height: 440px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: softFloat 7s ease-in-out infinite;
-        }
-
-        .sleeve-jacket {
-            position: absolute;
-            width: 280px;
-            height: 280px;
-            background: #111;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.08);
-            z-index: 2;
-            overflow: hidden;
-            transform: rotate(-4deg) translate(-25px, -25px);
-            transition: var(--transition-smooth);
-        }
-
-        .sleeve-jacket img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: sepia(20%) contrast(105%);
-        }
-
-        .vinyl-disc-spin {
-            position: absolute;
-            width: 265px;
-            height: 265px;
-            background: repeating-radial-gradient(
-                circle,
-                #181818,
-                #111111 2px,
-                #222222 4px,
-                #111111 5px
-            );
-            border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            z-index: 1;
-            transform: translate(65px, -15px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: recordSpin 18s linear infinite;
-        }
-
-        .vinyl-center-gold {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: var(--gold);
-            background-image: radial-gradient(circle, #f3d174 20%, #d4af37 80%);
-            border: 4px solid #111;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .vinyl-center-hole {
-            width: 12px;
-            height: 12px;
-            background: var(--bg-dark);
-            border-radius: 50%;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.9);
-        }
-
-        .polaroid-photo {
-            position: absolute;
-            bottom: 15px;
-            right: 0px;
-            width: 180px;
-            background: #FAF8F5;
-            padding: 10px 10px 25px;
-            box-shadow: 10px 15px 35px rgba(0,0,0,0.5);
-            transform: rotate(8deg);
-            z-index: 3;
-            border-radius: 2px;
-        }
-
-        .polaroid-photo img {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-            filter: sepia(15%) contrast(98%);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .polaroid-caption {
-            font-family: 'Playfair Display', serif;
-            color: #2b2824;
-            text-align: center;
-            font-size: 0.85rem;
-            margin-top: 10px;
-            font-style: italic;
-            font-weight: 600;
-        }
-
-        .tape-strip {
-            position: absolute;
-            top: -12px;
-            left: 35%;
-            width: 60px;
-            height: 22px;
-            background: rgba(222, 215, 195, 0.45);
-            transform: rotate(-6deg);
-            backdrop-filter: blur(1px);
-            border-left: 1px dashed rgba(0,0,0,0.08);
-            border-right: 1px dashed rgba(0,0,0,0.08);
-        }
-
-        .collage-wrapper:hover .sleeve-jacket {
-            transform: rotate(-1deg) translate(-35px, -30px);
-        }
-
-        .collage-wrapper:hover .vinyl-disc-spin {
-            transform: translate(95px, -20px);
-        }
-
-        .collage-wrapper:hover .polaroid-photo {
-            transform: rotate(3deg) scale(1.04);
-        }
-
-        /* Responsive Footer Block */
-        footer.premium-footer {
-            background: #050505;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            padding: 5rem 2rem 2rem;
-            width: 100%;
-        }
-
-        .footer-grid {
-            max-w: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 4rem;
-            padding-bottom: 4rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-col h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-        }
-
-        .footer-col h3 span {
-            color: var(--gold);
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .footer-col p {
-            color: var(--text-muted);
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 1rem;
-        }
-
-        .footer-col a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition-smooth);
-        }
-
-        .footer-col a:hover {
-            color: var(--gold);
-        }
-
-        .social-link-row {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .circle-social-btn {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: var(--transition-smooth);
-        }
-
-        .circle-social-btn:hover {
-            background: var(--gold);
-            color: #050505;
-            border-color: var(--gold);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom-strip {
-            max-w: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        /* Animations */
-        @keyframes elegantFadeUp {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes softFloat {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(1deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        @keyframes recordSpin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Mobile Views */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(8, 8, 8, 0.98);
-                backdrop-filter: blur(25px);
-                flex-direction: column;
-                padding: 2.5rem;
-                text-align: center;
-                border-bottom: 1px solid rgba(255,255,255,0.06);
-                gap: 1.8rem;
-            }
-
-            nav ul.mobile-shown {
-                display: flex;
-            }
-
-            main {
-                padding-top: 8rem;
-            }
-
-            .hero-text {
-                text-align: center;
-            }
-
-            .hero-text p {
-                margin: 0 auto 2.5rem auto;
-            }
-
-            .collage-wrapper {
-                margin-top: 2rem;
-                transform: scale(0.85);
-            }
-        }
-    </style>
+    <title>Dust & Needles | Vintage Playlist Archive</title>
+    <!-- Font Asal -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Link ke fail CSS Tema Coklat/Krim anda -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Ambient Scenarios -->
-    <div class="scenery-background"></div>
-    <div class="dark-overlay"></div>
-    <canvas id="particle-dust-canvas"></canvas>
-
-    <!-- Header Navigation -->
+    <!-- Header & Menu Tengah -->
     <header>
-        <div class="header-container">
-            <a href="index.html" class="logo"><i class="fa-solid fa-compact-disc"></i> Dust <span>&</span> Needles</a>
-            
-            <button class="mobile-menu-btn" onclick="toggleMobileNav()">
-                <i class="fa-solid fa-bars" id="menu-icon-btn"></i>
-            </button>
-            
-            <nav>
-                <ul id="main-navigation-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="playlists.html">Playlists</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <a href="index.html" class="logo">📻 Dust & Needles</a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="playlists.html">Playlists</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <!-- Home Main section content -->
-        <section class="home-grid">
-            <div class="hero-text">
-                <h1>Where analog memories come <span>alive</span>.</h1>
+    <!-- Muka Depan Baru (Teks Kiri, Gambar Kanan) -->
+    <main class="home-container">
+        <section class="hero-split">
+            
+            <!-- Bahagian Kiri: Teks -->
+            <div class="hero-text-part">
+                <h1>Where analog memories come <span class="highlight">alive</span>.</h1>
                 <p>Your ultimate destination for curated, mood-based vintage playlists. We believe that every moment in life deserves the perfect analog soundtrack. Listen to the dust settle.</p>
-                <div>
-                    <a href="playlists.html" class="btn-gold">Explore The Archive</a>
-                </div>
+                <a href="playlists.html" class="submit-btn">Explore The Archive</a>
             </div>
-
+            
+            <!-- Bahagian Kanan: Gambar Bertindih (Collage) -->
             <div class="hero-visual-collage">
                 <div class="collage-wrapper">
+                    <!-- Piring Hitam (Belakang) -->
                     <div class="vinyl-disc-spin">
                         <div class="vinyl-center-gold">
                             <div class="vinyl-center-hole"></div>
                         </div>
                     </div>
 
+                    <!-- Cover Album (Tengah) -->
                     <div class="sleeve-jacket">
                         <img src="https://images.unsplash.com/photo-1542208998-f6dbbb27a72f?q=80&w=800&auto=format&fit=crop" alt="Analog Vintage Record Jacket Cover">
                     </div>
 
+                    <!-- Gambar Polaroid (Depan) -->
                     <div class="polaroid-photo">
                         <div class="tape-strip"></div>
                         <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=400&auto=format&fit=crop" alt="Aesthetic Jazz Piano Bar">
@@ -603,19 +59,19 @@
                     </div>
                 </div>
             </div>
+
         </section>
     </main>
 
-    <!-- Footer Block -->
+    <!-- Footer yang Seragam dengan Page Lain -->
     <footer class="premium-footer">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h3>📻 Dust <span>&</span> Needles</h3>
-                <p>Curating the forgotten, preserving the imperfect. A digital sanctuary celebrating retro audio values and analog aesthetic depth.</p>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>📻 Dust & Needles</h3>
+                <p>Curating the best analog sounds for your daily moods. A space where vintage aesthetics meet modern curation.</p>
             </div>
-            
-            <div class="footer-col">
-                <h3>Quick Navigation</h3>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="playlists.html">Playlists</a></li>
@@ -623,99 +79,17 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            
-            <div class="footer-col">
+            <div class="footer-social">
                 <h3>Connect With Us</h3>
-                <p>Follow our curations directly across social systems.</p>
-                <div class="social-link-row">
-                    <a href="https://spotify.com" target="_blank" class="circle-social-btn"><i class="fa-brands fa-spotify"></i></a>
-                    <a href="https://instagram.com" target="_blank" class="circle-social-btn"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://twitter.com" target="_blank" class="circle-social-btn"><i class="fa-brands fa-twitter"></i></a>
-                </div>
+                <p>Enjoy our curated playlists directly on Spotify.</p>
+                <p style="margin-top: 10px; color: var(--accent-gold);">Email: hello@dustneedles.com</p>
             </div>
         </div>
-        <div class="footer-bottom-strip">
+        <div class="footer-bottom">
             <p>&copy; 2026 Dust & Needles. All Rights Reserved.</p>
-            <p style="color: var(--gold); font-weight: 500; letter-spacing: 1px;">Preserving Analog Warmth</p>
         </div>
     </footer>
 
-    <script>
-        const canvas = document.getElementById('particle-dust-canvas');
-        const ctx = canvas.getContext('2d');
-        let dustParticles = [];
-
-        function autoResizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', autoResizeCanvas);
-        autoResizeCanvas();
-
-        class DustParticle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height + canvas.height;
-                this.size = Math.random() * 1.5 + 0.4;
-                this.speedY = -(Math.random() * 0.4 + 0.1);
-                this.speedX = Math.random() * 0.2 - 0.1;
-                this.opacity = Math.random() * 0.4 + 0.1;
-                this.fadeFactor = Math.random() * 0.004 + 0.001;
-            }
-
-            update() {
-                this.y += this.speedY;
-                this.x += this.speedX;
-                if (this.opacity < 0.1 || this.opacity > 0.5) {
-                    this.fadeFactor = -this.fadeFactor;
-                }
-                this.opacity += this.fadeFactor;
-
-                if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) {
-                    this.x = Math.random() * canvas.width;
-                    this.y = canvas.height + 10;
-                    this.opacity = Math.random() * 0.4 + 0.1;
-                }
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
-                ctx.shadowBlur = 5;
-                ctx.shadowColor = 'rgba(212, 175, 55, 0.4)';
-                ctx.fill();
-            }
-        }
-
-        function buildDustField() {
-            dustParticles = [];
-            for (let i = 0; i < 70; i++) {
-                dustParticles.push(new DustParticle());
-            }
-        }
-        buildDustField();
-
-        function renderFieldAnimation() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            dustParticles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            requestAnimationFrame(renderFieldAnimation);
-        }
-        renderFieldAnimation();
-
-        function toggleMobileNav() {
-            const menu = document.getElementById('main-navigation-menu');
-            const icon = document.getElementById('menu-icon-btn');
-            menu.classList.toggle('mobile-shown');
-            if (menu.classList.contains('mobile-shown')) {
-                icon.className = 'fa-solid fa-xmark';
-            } else {
-                icon.className = 'fa-solid fa-bars';
-            }
-        }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
