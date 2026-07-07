@@ -185,6 +185,8 @@ main {
     justify-content: center;
     border: 2px solid #333;
     transition: background-color 0.5s;
+    background-size: cover;
+    background-position: center;
 }
 
 .vinyl-hole {
