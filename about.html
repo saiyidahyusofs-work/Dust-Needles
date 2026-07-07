@@ -9,10 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
     <style>
-        /* Base Setup & Background */
+        /* Base Setup & Background Musik */
         * {
             margin: 0;
             padding: 0;
@@ -27,8 +25,6 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            position: relative;
-            overflow-x: hidden;
         }
 
         /* Container Kad Utama */
@@ -43,23 +39,10 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
-            overflow: hidden; /* Supaya bucu footer ikut rounded kotak putih */
+            overflow: hidden; 
+            /* Tambah corak nota muzik yang lebih lembut di dalam kotak putih juga */
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><text x='20' y='40' fill='rgba(0,0,0,0.015)' font-size='24'>♫</text><text x='85' y='80' fill='rgba(0,0,0,0.015)' font-size='20'>♪</text></svg>");
         }
-
-        /* GAYA DEKORASI NOTA MUZIK LATAR BELAKANG */
-        .music-note {
-            position: absolute;
-            color: rgba(0, 0, 0, 0.03); /* Kepekatan warna nota (sangat pudar & estetik) */
-            pointer-events: none; /* Supaya tak mengganggu cursor bila user klik */
-            z-index: 1;
-        }
-        
-        /* Lokasi posisi setiap nota muzik secara rawak */
-        .note1 { top: 10%; left: 5%; font-size: 40px; transform: rotate(-15deg); }
-        .note2 { top: 75%; left: 8%; font-size: 55px; transform: rotate(20deg); }
-        .note3 { top: 15%; right: 10%; font-size: 45px; transform: rotate(10deg); }
-        .note4 { top: 45%; left: 45%; font-size: 35px; transform: rotate(-25deg); }
-        .note5 { top: 70%; right: 45%; font-size: 50px; transform: rotate(15deg); }
 
         /* Header Navigation */
         .header {
@@ -68,8 +51,7 @@
             align-items: center;
             border-bottom: 1px solid #e0e0e0;
             padding-bottom: 15px;
-            position: relative;
-            z-index: 2; /* Letak atas nota muzik */
+            z-index: 2;
         }
 
         .logo {
@@ -101,14 +83,13 @@
             border-bottom: 2px solid #000;
         }
 
-        /* Kandungan Utama (Layout 2 Column) */
+        /* Kandungan Utama */
         .content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: center;
-            position: relative;
-            z-index: 2; /* Letak atas nota muzik */
+            z-index: 2;
         }
 
         @media (max-width: 768px) {
@@ -148,4 +129,126 @@
             position: absolute;
             width: 90%;
             height: 90%;
-            border: 1px solid rgba(255,
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        /* KEMBALI KEPADA ASAL: Warna Kuning Emas Vintage */
+        .vinyl-center {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: #d4af37; /* Warna emas vintage asal */
+            border: 4px solid #111;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #111; /* Tulisan kembali gelap */
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+            padding: 5px;
+            overflow: hidden;
+        }
+
+        .vinyl-center span {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 8px;
+            font-weight: normal;
+            opacity: 0.8;
+            margin-top: 2px;
+            line-height: 1.1;
+        }
+
+        .vinyl-center::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #f7f7f7;
+            border-radius: 50%;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-text h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 30px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        /* Footer Kad Coklat */
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #f4eae1; 
+            background-color: #4a3329; 
+            margin: 20px -40px -40px -40px; 
+            padding: 20px;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="about-container">
+        <header class="header">
+            <div class="logo">Dust & Needles</div>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="playlists.html">Playlists</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="content">
+            <div class="vinyl-wrapper">
+                <div class="vinyl">
+                    <div class="vinyl-center">
+                        ABOUT
+                        <span>Dust & Needles</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-text">
+                <h2>Dust & Needles Archive</h2>
+                <p>We are a group of music enthusiasts dedicated to curating the best vintage vibes. Dust & Needles was born out of a profound love for analog sound in a digital world. We wanted to recreate the feeling of digging through crates of old records, finding a hidden gem, and letting the needle drop.</p>
+                <p>Built with passion. Our team aims to provide a seamless, distraction-free environment to discover mood-based playlists.</p>
+                <p>Connect With Us. Enjoy our curated playlists directly on Spotify!</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            Created with passion by Dust & Needles © 2026
+        </footer>
+    </div>
+
+</body>
+</html>
