@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Base Setup & Background Musik */
         * {
             margin: 0;
             padding: 0;
@@ -19,6 +20,8 @@
 
         body {
             background-color: #e5e5e5;
+            /* Tambah corak nota muzik transparan sebagai background web */
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><text x='10' y='30' fill='rgba(0,0,0,0.03)' font-size='22'>♪</text><text x='70' y='25' fill='rgba(0,0,0,0.03)' font-size='26'>♫</text><text x='40' y='75' fill='rgba(0,0,0,0.03)' font-size='20'>♬</text><text x='80' y='85' fill='rgba(0,0,0,0.02)' font-size='24'>♩</text></svg>");
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,6 +29,7 @@
             padding: 20px;
         }
 
+        /* Container Kad Utama */
         .about-container {
             background-color: #f7f7f7;
             width: 100%;
@@ -37,15 +41,19 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
-            overflow: hidden; /* Penting: Supaya bucu footer ikut rounded kotak putih */
+            overflow: hidden; 
+            /* Tambah corak nota muzik yang lebih lembut di dalam kotak putih juga */
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><text x='20' y='40' fill='rgba(0,0,0,0.015)' font-size='24'>♫</text><text x='85' y='80' fill='rgba(0,0,0,0.015)' font-size='20'>♪</text></svg>");
         }
 
+        /* Header Navigation */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid #e0e0e0;
             padding-bottom: 15px;
+            z-index: 2;
         }
 
         .logo {
@@ -77,11 +85,13 @@
             border-bottom: 2px solid #000;
         }
 
+        /* Kandungan Utama */
         .content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: center;
+            z-index: 2;
         }
 
         @media (max-width: 768px) {
@@ -90,18 +100,12 @@
                 gap: 15px;
                 text-align: center;
             }
-            #nav-links {
-                padding: 0;
-            }
-            #nav-links li {
-                margin: 0 10px;
-            }
-            .content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+            #nav-links { padding: 0; }
+            #nav-links li { margin: 0 10px; }
+            .content { grid-template-columns: 1fr; text-align: center; }
         }
 
+        /* Animasi Piring Hitam (Vinyl) */
         .vinyl-wrapper {
             display: flex;
             justify-content: center;
@@ -131,22 +135,23 @@
             border-radius: 50%;
         }
 
+        /* KEMBALI KEPADA ASAL: Warna Kuning Emas Vintage */
         .vinyl-center {
             width: 90px;
             height: 90px;
             border-radius: 50%;
-            background-color: #4a3329; 
+            background-color: #d4af37; /* Warna emas vintage asal */
             border: 4px solid #111;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #f4eae1; 
+            color: #111; /* Tulisan kembali gelap */
             font-family: 'Fredoka', sans-serif;
             font-weight: 600;
             font-size: 12px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
             padding: 5px;
             overflow: hidden;
         }
@@ -187,18 +192,19 @@
             color: #555;
             line-height: 1.6;
             font-size: 15px;
-            text-align: justify; /* Kiri kanan sama rata */
+            text-align: justify;
         }
 
-        /* BAHAGIAN FOOTER COKLAT BERUBAH DI SINI */
+        /* Footer Kad Coklat */
         .footer {
             text-align: center;
             font-size: 13px;
             color: #f4eae1; 
-            background-color: #4a3329; /* Warna Rich Brown */
-            margin: 20px -40px -40px -40px; /* Tarik rapat ke dinding */
+            background-color: #4a3329; 
+            margin: 20px -40px -40px -40px; 
             padding: 20px;
             font-weight: 500;
+            z-index: 2;
         }
 
         @keyframes spin {
