@@ -7,28 +7,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- KOD TAMBAHAN KHAS UNTUK BACKGROUND BERGAMBAR PAGE INI SAHAJA -->
     <style>
         body {
-            /* Gambar background dengan lapisan krim (overlay) supaya tulisan kekal jelas */
-            background-image: linear-gradient(rgba(244, 235, 208, 0.85), rgba(244, 235, 208, 0.95)), url('https://images.unsplash.com/photo-1458560871784-56d23406c091?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Gambar kekal statik bila scroll ke bawah */
+            /* Menggunakan gambar baharu pilihan anda (fc1344...) secara 100% tanpa sebarang lapisan lutsinar */
+            background-image: url('https://i.pinimg.com/736x/fc/13/44/fc1344f4904563523421a0b3b2076041.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-attachment: fixed !important; /* Gambar kekal statik bila scroll ke bawah */
         }
         
-        /* Jadikan kotak player sedikit lutsinar (glass effect) */
+        /* Kotak player utama dibuat sepenuhnya padat (solid background) */
         .player-section {
-            background: linear-gradient(135deg, rgba(215, 196, 161, 0.90), rgba(199, 176, 139, 0.90));
+            background: #d7c4a1 !important; /* Warna krim pekat padat */
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            backdrop-filter: blur(10px);
             border-radius: 20px;
             margin-top: 20px;
         }
 
+        /* Kotak kad lagu dibuat sepenuhnya padat (solid background) */
         .playlist-card {
-            background-color: rgba(230, 213, 184, 0.95);
-            backdrop-filter: blur(5px);
+            background-color: #e6d5b8 !important; /* Warna kad asal tanpa kesan lutsinar */
+        }
+
+        /* MEMAKSA TAJUK UTAMA MENJADI WARNA PUTIH */
+        .section-title {
+            color: #ffffff !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important; /* Sedikit bayang hitam supaya teks putih lebih timbul */
         }
     </style>
 </head>
@@ -51,7 +55,6 @@
             <div class="vinyl-container" id="vinyl-record">
                 <div class="vinyl-grooves"></div>
                 
-                <!-- BEKAS UNTUK NOTA MUZIK TERAPUNG -->
                 <div class="music-notes">
                     <span class="note note1">🎵</span>
                     <span class="note note2">🎶</span>
@@ -73,7 +76,6 @@
         <h2 class="section-title">The Vintage Archive</h2>
         
         <div class="playlist-grid">
-            <!-- Playlist 1 -->
             <div class="playlist-card">
                 <div class="playlist-icon">☕</div>
                 <h3>Lofi Beats</h3>
@@ -81,7 +83,6 @@
                 <button class="play-btn" onclick="playSpotify('0vvXsWCC9xrXsKd4FyS8kM', 'Lofi Beats', '#8B5A2B')">▶ Play</button>
             </div> 
             
-            <!-- Playlist 2 -->
             <div class="playlist-card">
                 <div class="playlist-icon">📚</div>
                 <h3>Deep Focus</h3>
@@ -89,7 +90,6 @@
                 <button class="play-btn" onclick="playSpotify('0oPyDVNdgcPFAWmOYSK7O1', 'Deep Focus', '#4A6741')">▶ Play</button>
             </div>
             
-            <!-- Playlist 3 -->
             <div class="playlist-card">
                 <div class="playlist-icon">🌙</div>
                 <h3>Sleep & Dream</h3>
@@ -97,7 +97,6 @@
                 <button class="play-btn" onclick="playSpotify('3MKsznGQxZFaw4Wb0GJ564', 'Sleep & Dream', '#2C3E50')">▶ Play</button>
             </div>
             
-            <!-- Playlist 4 -->
             <div class="playlist-card">
                 <div class="playlist-icon">🎧</div>
                 <h3>K-Pop Classics</h3>
@@ -105,21 +104,17 @@
                 <button class="play-btn" onclick="playSpotify('3Ir5YWemOTGRRfXgROrsDV', 'K-Pop Classics', '#8E44AD')">▶ Play</button>
             </div>
 
-            <!-- Playlist 5 -->
             <div class="playlist-card">
                 <div class="playlist-icon">🎷</div>
                 <h3>Neon Pulse</h3>
                 <p>Electrifying hits to keep you moving all day.</p>
-                <!-- Kod warna #800020 (Burgundy Merah Gelap) -->
                 <button class="play-btn" onclick="playSpotify('1WH6WVBwPBz35ZbWsgCpgr', 'Neon Pulse', '#800020')">▶ Play</button>
             </div>
 
-            <!-- Playlist 6 -->
             <div class="playlist-card">
                 <div class="playlist-icon">🎸</div>
                 <h3>Archive of Heartbreak</h3>
                 <p>Curated melodies for the echoes of what used to be.</p>
-                <!-- Kod warna #D35400 (Oren) -->
                 <button class="play-btn" onclick="playSpotify('5YhjEIWz3B8QGIeJFrV9wN', 'Archive of Heartbreak', '#D35400')">▶ Play</button>
             </div>
         </div>
