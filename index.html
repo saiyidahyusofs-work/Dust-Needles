@@ -30,6 +30,121 @@
         .hero-text-part p {
             color: #f1f1f1 !important;
         }
+
+        /* MEMAKSA PERKATAAN 'ALIVE' GUNA WARNA OREN TERANG / EMAS MENYALA */
+        .highlight {
+            color: #ff9f43 !important; /* Warna oren terang yang menonjol */
+            text-shadow: 0 0 10px rgba(255, 159, 67, 0.5) !important; /* Sedikit kesan glow lembut supaya lagi timbul */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">📻 Dust & Needles</a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="playlists.html">Playlists</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="home-container">
+        <section class="hero-split">
+            
+            <div class="hero-text-part">
+                <h1>Where analog memories come <span class="highlight">alive</span>.</h1>
+                <p>Your ultimate destination for curated, mood-based vintage playlists. We believe that every moment in life deserves the perfect analog soundtrack. Listen to the dust settle.</p>
+                <a href="playlists.html" class="submit-btn">Explore The Archive</a>
+            </div>
+            
+            <div class="hero-visual-collage">
+                <div class="collage-wrapper">
+                    <div class="vinyl-disc-spin">
+                        <div class="vinyl-center-gold">
+                            <div class="vinyl-center-hole"></div>
+                        </div>
+                    </div>
+
+                    <div class="sleeve-jacket">
+                        <img src="https://images.unsplash.com/photo-1542208998-f6dbbb27a72f?q=80&w=800&auto=format&fit=crop" alt="Analog Vintage Record Jacket Cover">
+                    </div>
+
+                    <div class="polaroid-photo">
+                        <div class="tape-strip"></div>
+                        <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=400&auto=format&fit=crop" alt="Aesthetic Jazz Piano Bar">
+                        <div class="polaroid-caption">Late Night Jazz</div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="premium-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>📻 Dust & Needles</h3>
+                <p>Curating the best analog sounds for your daily moods. A space where vintage aesthetics meet modern curation.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="playlists.html">Playlists</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <p>Enjoy our curated playlists directly on Spotify.</p>
+                <p style="margin-top: 10px; color: var(--accent-gold);">Email: hello@dustneedles.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Dust & Needles. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dust & Needles | Vintage Playlist Archive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/736x/69/08/a2/6908a25f447390a29ad8c25f365cd7de.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-attachment: fixed !important;
+        }
+
+        /* Memastikan kontena utama lutsinar supaya tidak menutup gambar wallpaper belakang */
+        .home-container {
+            background: transparent !important;
+        }
+
+        /* Menukar warna tajuk utama (H1) menjadi warna putih */
+        .hero-text-part h1 {
+            color: #ffffff !important;
+        }
+
+        /* Menukar warna teks penerangan (P) menjadi warna putih lembut/cerah */
+        .hero-text-part p {
+            color: #f1f1f1 !important;
+        }
     </style>
 </head>
 <body>
